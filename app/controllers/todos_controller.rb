@@ -74,8 +74,4 @@ class TodosController < ApplicationController
       format.json { render json: "hello world!" }
   end
 end
-
-    
-
-    
 end
