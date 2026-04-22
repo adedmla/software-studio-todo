@@ -7,7 +7,13 @@
 <div id="todos">
   <% @todos.each do |todo| %>
     <%= render todo %>
-    <p>Done: <%= todo.done %></p>
+    <p>Done: <%= todo.done ? "Yes" : "No" %></p>
+    <p>
+      <%= button_to(todo.done ? "Mark as not done" : "Mark as done",
+                    todo_path(todo),
+                    method: :patch,
+                    params: { todo: { done: !todo.done } }) %>
+    </p>
     <p>
       <%= link_to "Show this todo", todo %>
     </p>
